@@ -1,0 +1,4 @@
+node_modules/
+dist/
+src/data/all.js
+.DS_Store

@@ -1,0 +1,16 @@
+{
+  "name": "compx310-final-test-trainer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Unofficial study tool for the COMPX310 Machine Learning final test (University of Waikato).",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs --target web",
+    "build:claude": "node build.mjs",
+    "test": "node tools/gen-data.mjs && node tools/validate-content.mjs && node tools/check-cheat.mjs && node tools/check-adaboost-steps.mjs && node tools/check-bootstrap-oob.mjs && node tools/check-ensemble-accuracy.mjs && node tools/check-voting-calc.mjs && node tools/check-gradboost-residuals.mjs && node tools/check-svm.mjs && node tools/check-bayes-gp.mjs && node tools/check-c.mjs && node tools/check-d.mjs"
+  },
+  "dependencies": {
+    "esbuild": "0.24.0",
+    "preact": "10.24.3"
+  }
+}

@@ -1,0 +1,117 @@
+/* ---------------------------------------------------------------- categorical colours (both themes) */
+:root, :root:root[data-user-theme="light"] {
+  --cA: #2346c4;   /* class A / positive: biro blue */
+  --cB: #c4302a;   /* class B / negative: marker red */
+  --c1: #2346c4; --c2: #c4302a; --c3: #1d7a4e; --c4: #a05a00; --c5: #7a3fb0; --c6: #0e7c86;
+  --c1-soft: #dfe6fb; --c2-soft: #f8dfdc; --c3-soft: #d9efe3; --c4-soft: #f5e6cc; --c5-soft: #ebe0f5; --c6-soft: #d6eef0;
+  --plot-bg: #fbfcfe;
+  --grid: #e3e8f0;
+  --axis: #8792aa;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cA: #93b4ff; --cB: #ff8f82;
+    --c1: #93b4ff; --c2: #ff8f82; --c3: #7fd7a8; --c4: #f1c75c; --c5: #c9a4f2; --c6: #6fd3dc;
+    --c1-soft: #22304a; --c2-soft: #3b2522; --c3-soft: #1d3a2c; --c4-soft: #3a3219; --c5-soft: #33274a; --c6-soft: #173a3d;
+    --plot-bg: #1a2321; --grid: #2a3633; --axis: #7f908a;
+  }
+}
+:root[data-theme="dark"], :root:root[data-user-theme="dark"] {
+  --cA: #93b4ff; --cB: #ff8f82;
+  --c1: #93b4ff; --c2: #ff8f82; --c3: #7fd7a8; --c4: #f1c75c; --c5: #c9a4f2; --c6: #6fd3dc;
+  --c1-soft: #22304a; --c2-soft: #3b2522; --c3-soft: #1d3a2c; --c4-soft: #3a3219; --c5-soft: #33274a; --c6-soft: #173a3d;
+  --plot-bg: #1a2321; --grid: #2a3633; --axis: #7f908a;
+}
+
+/* ---------------------------------------------------------------- widget frame */
+.wg { display: grid; gap: 14px; padding: 16px 18px; }
+.wg-head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 14px; }
+.wg-titles { flex: 1 1 260px; min-width: 0; display: grid; gap: 4px; }
+.wg-title { font-family: var(--font-display); font-size: 15.5px; font-weight: 700; letter-spacing: -0.01em; margin: 0; }
+.wg-lead { color: var(--ink-2); font-size: 14.5px; max-width: 70ch; }
+.wg-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.wg-body { display: grid; gap: 14px; min-width: 0; }
+.wg-foot { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 10px 12px; border-radius: var(--r-sm); background: var(--paper-2); border: 1px solid var(--rule); font-size: 14px; color: var(--ink-2); }
+.wg-foot-k { font-family: var(--font-display); font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+
+/* two-pane layout: controls beside the plot, stacking when narrow */
+.wg-split { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 760px) { .wg-split { grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); } }
+.wg-split.wide-ctl { }
+@media (min-width: 760px) { .wg-split.wide-ctl { grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); } }
+.wg-controls { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.wg-plot { min-width: 0; display: grid; gap: 8px; }
+.wg-row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; }
+.wg-note { font-size: 13.5px; color: var(--ink-2); }
+.wg-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 13px; color: var(--ink-2); }
+.wg-legend .sw { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+
+/* controls */
+.ctl { display: grid; gap: 4px; min-width: 0; }
+.ctl-top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.ctl-label { font-size: 13px; font-weight: 700; color: var(--ink-2); }
+.ctl-val { font-family: var(--font-mono); font-stretch: 87.5%; font-size: 13px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.ctl-hint { font-size: 12.5px; color: var(--ink-3); }
+input.range { width: 100%; accent-color: var(--biro); margin: 2px 0; height: 22px; }
+.input.num { min-height: 34px; padding: 4px 6px; text-align: center; font-family: var(--font-mono); font-stretch: 87.5%; font-size: 13.5px; }
+
+/* readouts */
+.readouts { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; }
+.readout { padding: 8px 10px; border-radius: var(--r-sm); background: var(--paper-2); border: 1px solid var(--rule); min-width: 0; }
+.readout-k { font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-2); }
+.readout-v { font-family: var(--font-display); font-weight: 700; font-size: 19px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.readout-s { font-size: 12.5px; color: var(--ink-2); }
+.readout.good { background: var(--tick-soft); border-color: transparent; }
+.readout.good .readout-v { color: var(--tick); }
+.readout.bad { background: var(--marker-soft); border-color: transparent; }
+.readout.bad .readout-v { color: var(--marker); }
+.readout.blue { background: var(--biro-soft); border-color: transparent; }
+.readout.blue .readout-v { color: var(--biro-2); }
+
+/* bars */
+.hbar { height: 8px; border-radius: 99px; background: var(--paper-3); overflow: hidden; min-width: 40px; }
+.hbar-fill { display: block; height: 100%; border-radius: 99px; background: var(--biro); }
+.hbar-fill.tick { background: var(--tick); }
+.hbar-fill.marker { background: var(--marker); }
+.hbar-fill.hint { background: var(--hint); }
+.hbar-fill.ink { background: var(--ink-3); }
+
+/* plots */
+svg.plot { display: block; width: 100%; height: auto; max-width: 100%; background: var(--plot-bg); border: 1px solid var(--rule); border-radius: var(--r-sm); touch-action: none; user-select: none; -webkit-user-select: none; }
+svg.plot .grid { stroke: var(--grid); stroke-width: 1; }
+svg.plot .axis line { stroke: var(--axis); stroke-width: 1; }
+svg.plot .axis text { fill: var(--ink-3); font-family: var(--font-ui); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+svg.plot .axis-label { fill: var(--ink-2); font-size: 11.5px; font-weight: 700; }
+svg.plot text { font-family: var(--font-ui); }
+svg.plot .lbl { fill: var(--ink-2); font-size: 11px; }
+svg.plot .lbl-strong { fill: var(--ink); font-size: 12px; font-weight: 700; }
+.plot-wrap { position: relative; min-width: 0; }
+.plot-tip { font-size: 12.5px; color: var(--ink-3); }
+
+/* matrices */
+table.mx, table.mx-in { border-collapse: collapse; font-family: var(--font-mono); font-stretch: 87.5%; font-size: 14px; font-variant-numeric: tabular-nums; }
+table.mx td { border: 1px solid var(--rule-2); min-width: 40px; height: 34px; padding: 3px 8px; text-align: center; background: var(--paper); }
+table.mx td.hl, table.mx-in td.hl { background: var(--hl); }
+table.mx-in td { padding: 2px; border: 1px dashed transparent; }
+table.mx-in td.hl { border-color: var(--hint); }
+.mx-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.mx-op { font-family: var(--font-math); font-size: 24px; color: var(--ink-3); }
+.mx-cap { font-size: 12px; font-weight: 700; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px; }
+
+/* compact data tables inside widgets and content (class "mini" is used by content files too) */
+table.mini { border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+table.mini th, table.mini td { border: 1px solid var(--rule); padding: 3px 8px; text-align: center; }
+table.mini th { background: var(--paper-2); font-weight: 700; font-size: 12.5px; }
+table.mini td.l, table.mini th.l { text-align: left; }
+table.mini tr.hl td { background: var(--hl); }
+table.mini td.good { color: var(--tick); font-weight: 700; }
+table.mini td.bad { color: var(--marker); font-weight: 700; }
+table.mini tr.hl td .fairness-calc-f { color: var(--ink-2); }
+.mini-wrap { overflow-x: auto; max-width: 100%; }
+
+/* step lists inside widgets */
+.calc-steps { display: grid; gap: 4px; font-family: var(--font-mono); font-stretch: 87.5%; font-size: 13px; line-height: 1.5; overflow-x: auto; }
+.calc-steps .why { font-family: var(--font-ui); color: var(--ink-3); font-size: 12.5px; }
+.cellbtn { all: unset; display: block; width: 100%; min-width: 30px; cursor: pointer; text-align: center; }
+.cellbtn:focus-visible { outline: 2px solid var(--biro); outline-offset: 2px; }
+.mx-in td.hl .input { background: var(--hl); border-color: var(--hint); }
