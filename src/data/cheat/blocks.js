@@ -41,7 +41,7 @@ export default [
   },
   {
     id: 'w1-qa-basics', week: 1, topic: 'w1-basics', title: 'Past Qs: ML basics', imp: 3, kind: 'qa',
-    html: `Spam detection → supervised (labels)<br>Segment customers → clustering<br>Many unlabelled + few labelled → semi-sup.<br>Unsupervised → unlabelled data<br>Predict via similarity → nearest neighbour<br>Underfit → more complex model<br>Overfit → simpler model / more data`,
+    html: `Spam detection → supervised (labels)<br>Segment customers → clustering<br>Many unlabelled + few labelled → semi-sup.<br>Unsupervised → unlabelled data<br>Predict via similarity → nearest neighbour<br>Underfit → more complex model / features<br>Overfit → simpler model / more data<br>Instance-based → kNN`,
   },
 
   // ───────────────────────────── Week 2: kNN & trees ─────────────────────────────
@@ -125,7 +125,7 @@ export default [
   },
   {
     id: 'w3-qa-regression', week: 3, topic: 'w3-reg', title: 'Past Qs: regression', imp: 3, kind: 'qa',
-    html: `10⁶ features, 1000 examples → Lasso<br>Features ≫ examples, correlated → ENet<br>Many examples, few good features → Ridge<br>ENet over Lasso → correlated features<br>Lasso over Ridge → many irrelevant feats<br>Ridge over LinReg → LinReg overfits<br>Ridge: train ≈ val, both high → ↓α<br>Poly: train ≪ val → overfit, ↓degree<br>Softmax generalises → sigmoid`,
+    html: `10⁶ features, 1000 examples → Lasso<br>Features ≫ examples, correlated → ENet<br>Many examples, few good features → Ridge<br>ENet over Lasso → correlated features<br>Lasso over Ridge → many irrelevant feats<br>Ridge over LinReg → LinReg overfits<br>Ridge: train ≈ val, both high → ↓α<br>Poly: train ≪ val → overfit, ↓degree<br>Softmax generalises → sigmoid<br>LinReg loss → MSE (not CE, hinge)`,
   },
 
   // ───────────────────────────── Week 4: performance ─────────────────────────────
@@ -171,7 +171,7 @@ export default [
   },
   {
     id: 'w4-qa-evaluation', week: 4, topic: 'w4-cv', title: 'Past Qs: evaluation', imp: 3, kind: 'qa',
-    html: `Validation set → tune hyperparameters<br>Tune/select on test set → fool ourselves<br>… if offered, pick "all of the above"<br>k-fold CV splits the → training data<br>F1 → harmonic mean of P and R<br>Tight but off-centre → high bias, low var<br>In/outdoor + day/night → 2 LogRegs`,
+    html: `Validation set → tune hyperparameters<br>Tune/select on test set → fool ourselves<br>… if offered, pick "all of the above"<br>k-fold CV splits the → training data<br>F1 → harmonic mean of P and R<br>Tight but off-centre → high bias, low var<br>In/outdoor + day/night → 2 LogRegs<br>ROC = TPR vs FPR; random guess AUC → 0.5<br>ROC A above B everywhere → A always better`,
   },
 
   // ───────────────────────────── Week 5: data prep & GD ─────────────────────────────
@@ -297,7 +297,7 @@ export default [
   },
   {
     id: 'w7-qa-ensembles', week: 7, topic: 'w7-voting', title: 'Past Qs: ensembles', imp: 3, kind: 'qa',
-    html: `Soft voting → sum class probs, normalise<br>OOB benefit → replaces a validation set<br>Extra-Trees → random split threshold<br>Nominal-only: RF vs Extra-Trees → same speed<br>AdaBoost underfits → bigger ensemble<br>Inherently sequential → gradient boosting<br>OOB ≈ a free ___ set → validation`,
+    html: `Soft voting → sum class probs, normalise<br>OOB benefit → replaces a validation set<br>Extra-Trees → random split threshold<br>Nominal-only: RF vs Extra-Trees → same speed<br>AdaBoost underfits → bigger ensemble<br>Inherently sequential → gradient boosting<br>OOB ≈ a free ___ set → validation<br>Bagging → sample examples with replacement<br>Val loss lowest at 20 trees → use 20`,
   },
   {
     id: 'w7-bag-paste', week: 7, topic: 'w7-bagging', title: 'Bagging vs pasting', imp: 3, kind: 'compare',
@@ -411,7 +411,25 @@ export default [
   },
   {
     id: 'w8-qa-svm', week: 8, topic: 'w8-margin', title: 'Past Qs: SVM', imp: 3, kind: 'qa',
-    html: `RBF underfit → ↑γ (key); also ↑C (slides)<br>10⁶ instances, 100s features → primal<br>Confidence score? → yes; probability: no<br>Why scale → larger margin / wider street<br>Hard-margin SV → exactly on the margin<br>(2019 mock key: "on the decision boundary"; slides: street edge)<br>Core idea → widest street / best hyperplane`,
+    html: `RBF underfit → ↑γ (key); also ↑C (slides)<br>10⁶ instances, 100s features → primal<br>Confidence score? → yes; probability: no<br>Why scale → larger margin / wider street<br>Hard-margin SV → exactly on the margin<br>(2019 mock key: "on the decision boundary"; slides: street edge)<br>Core idea → widest street / best hyperplane<br>Larger margin → more reliable prediction<br>Loss 0 for t ≥ 1, linear below → hinge`,
+  },
+  {
+    id: 'w9-qa-gp',
+    week: 9,
+    topic: 'w9-gp',
+    title: 'Past Qs: Gaussian processes',
+    imp: 3,
+    kind: 'qa',
+    html: 'Noise kernel → WhiteKernel (RBF() + WhiteKernel())<br>GP kernels: White, Polynomial, Matern → all are<br>No noise kernel → fits points (almost) exactly',
+  },
+  {
+    id: 'w10-qa-2023',
+    week: 10,
+    topic: 'w10-pca',
+    title: 'Past Qs: DR & clustering (2023)',
+    imp: 3,
+    kind: 'qa',
+    html: 'PCA: speed-up, compress, visualise → all<br>Too many features → slow, memory, overfit<br>High-dim point → more likely near border<br>Silhouette max at k = 4 → pick 4<br>DBSCAN: all noise → ↑ε (or ↓min_samples)<br>k-means vs feature scales → very sensitive',
   },
   {
     id: 'w8-poly-kernel', week: 8, topic: 'w8-kernel', title: 'Polynomial features vs kernel', imp: 2, kind: 'facts',

@@ -191,3 +191,4 @@
 .table-scroll table.plain { min-width: 520px; }
 .mock-end { align-items: center; }
 .resume-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px; border-color: var(--hint); background: var(--hint-soft); }
+.qimg { display: block; max-width: min(100%, 460px); height: auto; margin: 10px 0 4px; padding: 6px; background: #fff; border: 1px solid var(--rule); border-radius: 8px; }

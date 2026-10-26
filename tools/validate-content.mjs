@@ -12,7 +12,8 @@ const ALLOWED_TAGS = /<\/?(b|i|em|strong|code|sub|sup|br|ul|ol|li|table|thead|tb
 
 function checkHtml(f, id, field, s) {
   if (typeof s !== 'string') return err(f, id, `${field} not a string`);
-  const stripped = s.replace(ALLOWED_TAGS, '');
+  // embedded pictures (past-paper figures) are allowed as data: PNGs with alt text
+  const stripped = s.replace(ALLOWED_TAGS, '').replace(/<img class="qimg" src="data:image\/png;base64,[A-Za-z0-9+\/=]+" alt="[^"<>]+">/g, '');
   if (/<[a-z\/!]/i.test(stripped)) err(f, id, `${field} has a disallowed tag: ${stripped.match(/<[^>]{0,30}/)[0]}`);
   if (/\$[^$]+\$|\\frac|\\sum|\\alpha/.test(s)) err(f, id, `${field} looks like LaTeX; use Unicode`);
   if (/\s{2,}$/.test(s) || /^\s/.test(s)) warn.push(`${f} ${id}: ${field} has leading/trailing whitespace`);

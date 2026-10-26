@@ -4,10 +4,11 @@ import { TOPICS, TOPIC, WEEKS, MOCK_WEEK_QUOTA } from './topics.js';
 
 export { TOPICS, TOPIC, WEEKS, MOCK_WEEK_QUOTA, PAPERS, WRITTEN, CHEAT };
 
-const LETTER_PAPERS = { 'practice-2019': 'abc', 'test1-2024': 'abcd' };
+const LETTER_PAPERS = { 'practice-2019': 'abc', 'test1-2024': 'abcd', 'test2-2023': 'abcd' };
 export const optionLabel = (paperId, i) => (LETTER_PAPERS[paperId] ? LETTER_PAPERS[paperId][i] : String(i + 1));
 
 export const PAPER_SHORT = {
+  'test2-2023': '2023 Test 2',
   'practice-2019': '2019 practice paper',
   'test1-2025': '2025 Test 1',
   'mock-2019': '2019 mock',

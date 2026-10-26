@@ -191,10 +191,14 @@ export function Overview({ go }) {
         <div class="card home-card">
           <h2 class="h2">The lecturer reuses questions</h2>
           <p>
-            10 of the 26 questions on the 2019 mock came back, reworded, in the 2025 Test 1. The 2019 practice paper Housam posted this week is the best guide to the
-            second half: its Section A covers SVMs, ensembles, PCA, clustering and neural nets. Every one of its questions is in Practice and the mocks.
+            The 2023 Test 2 is the closest match to this test: 50 minutes, the whole course, mostly the second half. 13 of its 36 multiple-choice questions also appear
+            on the other papers here (8 in the 2024 Test 1), and 10 of the 26 on the 2019 mock came back in the 2025 Test 1. Every past-paper question is in Practice
+            and the mocks.
           </p>
-          <div>
+          <div class="row">
+            <Btn size="sm" onClick={() => go({ v: 'paper', p: 'test2-2023' })}>
+              Open the 2023 Test 2
+            </Btn>
             <Btn size="sm" onClick={() => go({ v: 'paper', p: 'practice-2019' })}>
               Open the practice paper
             </Btn>
@@ -203,8 +207,8 @@ export function Overview({ go }) {
         <div class="card home-card">
           <h2 class="h2">New this half, not on old papers</h2>
           <p>
-            Bayesian linear regression, Gaussian processes, attention/transformers (BERT vs GPT) and practical ML & fairness are in this term’s slides but on no past
-            paper, so the questions here are the only practice for them. Give Weeks 9, 11 and 12 a proper pass.
+            Bayesian linear regression, attention/transformers (BERT vs GPT) and practical ML & fairness are in this term’s slides but on no past paper, and Gaussian
+            processes get only two questions (2023 Test 2), so the questions here are the main practice for them. Give Weeks 9, 11 and 12 a proper pass.
           </p>
           <div class="row">
             <Btn size="sm" onClick={() => go({ v: 'week', p: 9 })}>

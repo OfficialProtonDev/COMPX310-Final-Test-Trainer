@@ -6,7 +6,7 @@ const d = (p) => path.join(root, 'src/data', p);
 const list = (dir) => (fs.existsSync(d(dir)) ? fs.readdirSync(d(dir)).filter((f) => f.endsWith('.js')).sort() : []);
 const qs = list('q');
 const ws = list('written');
-const ORDER = ['practice-2019', 'test1-2025', 'mock-2019', 'test1-2024'];
+const ORDER = ['test2-2023', 'practice-2019', 'test1-2025', 'mock-2019', 'test1-2024'];
 const ps = list('papers').sort((a, b) => (ORDER.indexOf(a.replace('.js', '')) + 99) % 99 - (ORDER.indexOf(b.replace('.js', '')) + 99) % 99);
 const cheatFile = process.env.TEST_CHEAT ? 'cheat/_test_blocks.js' : 'cheat/blocks.js';
 const hasCheat = fs.existsSync(d(cheatFile));

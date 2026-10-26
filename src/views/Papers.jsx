@@ -13,6 +13,7 @@ const fmtLabelShort = (f) => (f === 'full' ? 'Full test' : f === 'mcq' ? 'Multip
 const writtenItems = (p) => (p.sections || []).filter((s) => s.kind !== 'mcq').flatMap((s) => s.items || []);
 
 const WHY = {
+  'test2-2023': 'The 2023 version of this very test: 36 multiple choice + 2 written (7 marks) in 50 minutes, across the whole course with most questions on the second half. No official key — answers are ours.',
   'practice-2019': 'Posted by the lecturer this week as the practice test for the final. Best guide to which second-half ideas get asked.',
   'test1-2025': 'Last year’s Test 1 with the lecturer’s circled answers — exactly the real format (40 + 2, 50 min).',
   'mock-2019': '2019 mock with circled answers. 10 of its 26 questions came back reworded in the 2025 Test 1.',

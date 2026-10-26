@@ -23,7 +23,7 @@ export function Written({ go, init }) {
         <div class="h-kicker">Written answers</div>
         <h1 class="h-title">Practise the two 5-mark questions</h1>
         <p class="h-sub">
-          Test 1’s written questions were explanations (cross-validation; supervised vs unsupervised). The practice paper’s were worked problems (DBSCAN labelling,
+          Test 1’s written questions were explanations (cross-validation; supervised vs unsupervised), and so were the 2023 Test 2’s (bagging; cross-validation again). The practice paper’s were worked problems (DBSCAN labelling,
           convolution, drawing an SVM margin). Expect either. Aim for about 5 minutes each.{' '}
           {IS_WEB ? 'Then tick off the mark points yourself, or have Claude mark it in a new tab.' : 'Claude marks against the mark points, or tick them off yourself.'}
         </p>
